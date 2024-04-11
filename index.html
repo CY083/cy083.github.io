@@ -13,9 +13,22 @@
         justify-content: center;
         align-items: center;
         font-family: Arial, sans-serif;
-        font-size: xx-large;
         text-align: center;
     }
+    
+    h1 {
+            font-size: 96px; /* Sehr große Schriftgröße */
+            line-height: 1.2; /* Zeilenhöhe für bessere Lesbarkeit */
+            overflow: auto; /* Overflow-Eigenschaft zum Erstellen eines scrollbaren Bereichs */
+            max-height: 80vh; /* Maximale Höhe des scrollbaren Bereichs */
+        }
+
+        /* Media Query für kleine Bildschirme (Mobile) */
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 64px; /* Angepasste Schriftgröße für kleine Bildschirme */
+            }
+        }
 
 </style>
 </head>
