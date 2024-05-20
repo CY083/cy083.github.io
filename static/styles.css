@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.drink-item {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    display: grid; /* Ändere das Layout auf Grid */
+    grid-template-columns: repeat(1, 1fr); /* Zwei Spalten */
+    grid-gap: 10px; /* Abstand zwischen den Buttons */
+}
+
+.drink-item h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.action-button, .calculate-button, .new-order-button {
+    display: inline-block;
+    width: 400px; /* Buttons nehmen die volle Breite ihrer Container ein */
+    height: 50px;
+    margin: 10px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    line-height: normal; /* Standard-Zeilenhöhe */
+    white-space: nowrap; /* Verhindern des automatischen Zeilenumbruchs */
+    padding: 5px; /* Füge etwas Abstand um den Text herum hinzu */
+}
+
+.action-button:hover, .calculate-button:hover, .new-order-button:hover {
+    background-color: #45a049;
+}
+
+.calculate-button, .new-order-button {
+    width: 90%;
+    max-width: 400px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 20px;
+}

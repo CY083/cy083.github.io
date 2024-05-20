@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Getränkebestellung</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Getränkebestellung</h1>
+    {% for getraenk, daten in getraenke.items() %}
+        <div class="drink-item">
+            <h2>{{ getraenk }}</h2>
+            <p>Preis: €{{ '%.2f' % daten.preis }}</p>
+            <p>Pfand: €{{ '%.2f' % daten.pfand }}</p>
+            <p id="{{ getraenk }}-bestellt">Bestellt:<br>Getränke: {{ bestellung[getraenk]['menge'] }}, Pfand: {{ bestellung[getraenk]['pfand'] }}<br></p>
+            
+            <button class="action-button" onclick="updateOrder('{{ getraenk }}', 'getraenk', 'hinzufuegen')">+ {{ getraenk }}</button>
+            <button class="action-button" onclick="updateOrder('{{ getraenk }}', 'getraenk', 'entfernen')">- {{ getraenk }}</button>
+            <button class="action-button" onclick="updateOrder('{{ getraenk }}', 'pfand', 'hinzufuegen')">+ Pfand</button>
+            <button class="action-button" onclick="updateOrder('{{ getraenk }}', 'pfand', 'entfernen')">- Pfand</button>
+        </div>
+    {% endfor %}
+    
+    <form action="/berechnen" method="get">
+        <button type="submit" class="calculate-button">Gesamtpreis berechnen</button>
+    </form>
+
+    <script>
+        async function updateOrder(getraenk, art, action) {
+            const response = await fetch(`/${action}/${getraenk}/${art}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById(`${getraenk}-bestellt`).textContent = `Bestellt: ${data[getraenk].menge} Getränke, ${data[getraenk].pfand} Pfand`;
+            } else {
+                console.error('Fehler beim Aktualisieren der Bestellung');
+            }
+        }
+    </script>
+</body>
+</html>
