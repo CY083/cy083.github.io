@@ -4,9 +4,11 @@ app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
 GETRAENKE = {
-    'Bier': {'preis': 2.50, 'pfand': 0.25},
-    'Limonade': {'preis': 1.50, 'pfand': 0.15},
-    'Wasser': {'preis': 1.00, 'pfand': 0.10}
+    'Bier': {'preis': 4.00, 'pfand': 2.00},
+    'Softdrink': {'preis': 3.50, 'pfand': 2.00},
+    'Wasser': {'preis': 3.00, 'pfand': 2.00},
+    'Wein': {'preis': 5.00, 'pfand': 2.00},
+    'Longdrink': {'preis': 8.00, 'pfand': 2.00}
 }
 
 @app.route('/')
@@ -54,4 +56,4 @@ def neue_bestellung():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

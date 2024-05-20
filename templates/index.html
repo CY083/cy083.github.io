@@ -13,7 +13,7 @@
             <h2>{{ getraenk }}</h2>
             <p>Preis: €{{ '%.2f' % daten.preis }}</p>
             <p>Pfand: €{{ '%.2f' % daten.pfand }}</p>
-            <p id="{{ getraenk }}-bestellt">Bestellt:<br>Getränke: {{ bestellung[getraenk]['menge'] }}, Pfand: {{ bestellung[getraenk]['pfand'] }}<br></p>
+            <p id="{{ getraenk }}-bestellt">Bestellt: Getränke: {{ bestellung[getraenk]['menge'] }}, Pfand: {{ bestellung[getraenk]['pfand'] }}</p>
             
             <button class="action-button" onclick="updateOrder('{{ getraenk }}', 'getraenk', 'hinzufuegen')">+ {{ getraenk }}</button>
             <button class="action-button" onclick="updateOrder('{{ getraenk }}', 'getraenk', 'entfernen')">- {{ getraenk }}</button>
@@ -37,7 +37,7 @@
 
             if (response.ok) {
                 const data = await response.json();
-                document.getElementById(`${getraenk}-bestellt`).textContent = `Bestellt: ${data[getraenk].menge} Getränke, ${data[getraenk].pfand} Pfand`;
+                document.getElementById(`${getraenk}-bestellt`).textContent = `Bestellt: Getränke: ${data[getraenk].menge}, Pfand: ${data[getraenk].pfand} `;
             } else {
                 console.error('Fehler beim Aktualisieren der Bestellung');
             }

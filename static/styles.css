@@ -22,9 +22,15 @@ h1 {
     max-width: 400px;
     text-align: center;
     display: grid; /* Ändere das Layout auf Grid */
-    grid-template-columns: repeat(1, 1fr); /* Zwei Spalten */
+    grid-template-columns: repeat(1, 1fr); /* Eine Spalte */
     grid-gap: 10px; /* Abstand zwischen den Buttons */
 }
+
+.drink-item p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 
 .drink-item h2 {
     font-size: 1.5em;
@@ -33,12 +39,12 @@ h1 {
 
 .action-button, .calculate-button, .new-order-button {
     display: inline-block;
-    width: 400px; /* Buttons nehmen die volle Breite ihrer Container ein */
+    width: 90%; /* Buttons nehmen die volle Breite ihrer Container ein */
     height: 50px;
     margin: 10px;
     font-size: 1.2em;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #c8cfc8;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -50,7 +56,7 @@ h1 {
 }
 
 .action-button:hover, .calculate-button:hover, .new-order-button:hover {
-    background-color: #45a049;
+    background-color: #a9b3a9;
 }
 
 .calculate-button, .new-order-button {
